@@ -37,7 +37,7 @@
 
 	 ?>
 
-	<form action="<? php echo $_SERVER['PHP_SELP'] ?>" method="POST">
+	<form action="add_product.php" method="POST">
 		Product Name: <br>
 		<input type="text" name="product_name"><br><br>
 		Product Category: <br>
