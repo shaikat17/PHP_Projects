@@ -1,5 +1,4 @@
 <?php
-
 	require('connection.php');
 
 	$sqlCat = "SELECT * FROM category";
@@ -8,14 +7,14 @@
 
 	$data_list = array();
 
-	while($dataCat = mysqli_fetch_assoc($queryCat)) {
-		$catId = $dataCat['category_id'];
-		$CatName = $dataCat['category_name'];
+	while($data1 = mysqli_fetch_assoc($queryCat)){
+		$catID = $data1['category_id'];
+		$catName = $data1['category_name'];
 
-		$data_list[$catId] = $CatName;
+		$data_list[$catID] = $catName;
 	}
 
-	// print_r ($data_list);
+	// print_r($data_list);
 ?>
 
 
@@ -24,7 +23,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Product List</title>
+	<title>Category List</title>
 </head>
 <body>
 
@@ -35,13 +34,13 @@
 		$query = $conn->query($sql);
 
 		// $data = mysqli_fetch_assoc($query);
-		echo "<table border='1'><tr><th>Product ID</th><th>Product Name</th><th>Product Category</th><th>Product Code</th><th>Entry Date</th><th>Action</th></tr>";
+		echo "<table border='1'><tr><th>Product ID</th><th>Product Name</th><th>Product Category</th><th>Product Code</th><th>Product Entry Date</th><th>Action</th></tr>";
 
 		while($data = mysqli_fetch_assoc($query)) {
 			$pdID = $data['product_id'];
+			$pdName = $data['product_name'];
 			$pdCat = $data['product_category'];
 			$pdCode = $data['product_code'];
-			$pdName = $data['product_name'];
 			$pdEnDate = $data['product_entrydate'];
 
 			echo "<tr>

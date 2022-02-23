@@ -12,6 +12,14 @@
 <body>
 
 	<?php 
+
+	$product_id = '';
+	$product_name = '';
+	$product_code = '';
+	$product_category = '';
+	$product_entrydate = '';
+
+
 		if(isset($_GET['id'])) {
 			$getID = $_GET['id'];
 
