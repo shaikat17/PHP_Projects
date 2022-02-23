@@ -1,5 +1,11 @@
 <?php
 	require('connection.php');
+
+	session_start();
+
+	$userEmail = $_SESSION['userEmail'];
+
+	if(!empty($userEmail)) {
 ?>
 
 <!DOCTYPE html>
@@ -60,3 +66,10 @@
 	</form>
 </body>
 </html>
+
+<?php 
+} else {
+	header('location:login.php');
+}
+
+?>

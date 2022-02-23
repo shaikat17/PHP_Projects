@@ -35,25 +35,25 @@
 
 	<?php 
 		
-		$sql = "SELECT * FROM store_product";
+		$sql = "SELECT * FROM spend_product";
 
 		$query = $conn->query($sql);
 
 		// $data = mysqli_fetch_assoc($query);
-		echo "<table border='1'><tr><th>Store Product ID</th><th>Store Product Name</th><th>Store Product Quantity</th><th>Store Product Entry Date</th><th>Action</th></tr>";
+		echo "<table border='1'><tr><th>Spend Product ID</th><th>Spend Product Name</th><th>Spend Product Quantity</th><th>Spend Product Entry Date</th><th>Action</th></tr>";
 
 		while($data = mysqli_fetch_assoc($query)) {
-			$stPdID = $data['store_product_id'];
-			$stPdQuantity = $data['store_product_quantity'];
-			$stPdName = $data['store_product_name'];
-			$pdEnDate = $data['store_product_entrydate'];
+			$spendPdID = $data['spend_product_id'];
+			$spendPdQuantity = $data['spend_product_quantity'];
+			$spendPdName = $data['spend_product_name'];
+			$spendEnDate = $data['spend_product_entrydate'];
 
 			echo "<tr>
-					<td>$stPdID</td>
-					<td>$data_list[$stPdName]</td>
-					<td>$stPdQuantity</td>
-					<td>$pdEnDate</td>
-					<td><a href='edit_store_product.php?id=$stPdID'>Edit</a></td>
+					<td>$spendPdID</td>
+					<td>$data_list[$spendPdName]</td>
+					<td>$spendPdQuantity</td>
+					<td>$spendEnDate</td>
+					<td><a href='edit_spend_product.php?id=$spendPdID'>Edit</a></td>
 				</tr>";
 		}
 

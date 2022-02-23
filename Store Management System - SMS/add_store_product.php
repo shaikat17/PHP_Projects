@@ -2,6 +2,12 @@
 	require('connection.php');
 	require('queryFunction.php');
 
+	session_start();
+
+	$userEmail = $_SESSION['userEmail'];
+
+	if(!empty($userEmail)) {
+
 ?>
 
 <!DOCTYPE html>
@@ -45,3 +51,10 @@
 	</form>
 </body>
 </html>
+
+<?php 
+} else {
+	header('location:login.php');
+}
+
+?>

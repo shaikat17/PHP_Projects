@@ -15,6 +15,12 @@
 	}
 
 	// print_r($data_list);
+
+	session_start();
+
+	$userEmail = $_SESSION['userEmail'];
+
+	if(!empty($userEmail)) {
 ?>
 
 
@@ -59,3 +65,10 @@
 	
 </body>
 </html>
+
+<?php 
+} else {
+	header('location:login.php');
+}
+
+?>
