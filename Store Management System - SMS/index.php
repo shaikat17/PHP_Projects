@@ -21,73 +21,14 @@ if(!empty($userEmail)) {
 <body>
 	<div class="container bg-light">
 		<div class="container-fluid border-bottom border-success">
-			<div class="row p-3">
-				<div class="col-md-9">
-					<h1><a class="text-decoration-none text-success" href="/sms/index.php">Store Management System</a></h1>
-				</div>
-				<div class="col-md-3">
-					<p class="p-3"><?php echo $userName ?> <a class="btn btn-success text-white text-decoration-none" href="/sms/logout.php">Logout</a></p>
-				</div>
-			</div>
+			<?php include('topbar.php'); ?>
 			
 		</div>
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-4 bg-light p-0 m-0">
 
-					<h5 class="bg-success text-white p-2">Category</h5>
-					<ul class="list-group">
-						<li class="list-group-item">
-							<a class="text-decoration-none" href="/sms/add_category.php">Add Category</a>
-						</li>
-						<li class="list-group-item">
-							<a class="text-decoration-none" href="/sms/category_list.php">Category List</a>
-						</li>
-					</ul>
-
-					<h5 class="bg-success text-white p-2">Product</h5>
-					<ul class="list-group">
-						<li class="list-group-item">
-							<a class="text-decoration-none" href="/sms/add_product.php">Add Product</a>
-						</li>
-						<li class="list-group-item">
-							<a class="text-decoration-none" href="/sms/product_list.php">Product List</a>
-						</li>
-					</ul>
-
-					<h5 class="bg-success text-white p-2">Store Product</h5>
-					<ul class="list-group">
-						<li class="list-group-item">
-							<a class="text-decoration-none" href="/sms/add_store_product.php">Add Store Product</a>
-						</li>
-						<li class="list-group-item">
-							<a class="text-decoration-none" href="/sms/store_product_list.php">Store Product List</a>
-						</li>
-					</ul>
-
-					<h5 class="bg-success text-white p-2">Spend Product</h5>
-					<ul class="list-group">
-						<li class="list-group-item">
-							<a class="text-decoration-none" href="/sms/add_spend_product.php">Add Spend Product</a>
-						</li>
-						<li class="list-group-item">
-							<a class="text-decoration-none" href="/sms/spend_product_list.php">Spend Product List</a>
-						</li>
-					</ul>
-
-					<h5 class="bg-success text-white p-2">Report</h5>
-					<ul class="list-group">
-						<li class="list-group-item">
-							<a class="text-decoration-none" href="/sms/report.php">Report</a>
-						</li>
-					</ul>
-
-					<h5 class="bg-success text-white p-2">Users</h5>
-					<ul class="list-group">
-						<li class="list-group-item">
-							<a class="text-decoration-none" href="/sms/user_list.php">Users</a>
-						</li>
-					</ul>
+					<?php include('leftbar.php'); ?>
 
 				</div>
 				<div class="col-md-8 p-3 border-start border-success">
@@ -149,7 +90,7 @@ if(!empty($userEmail)) {
 			</div>
 		</div>
 		<div class="container-fluid border-top border-success">
-			<p class="text-center p-2">Copyright: SM Solution</p>
+			<?php include('botombar.php'); ?>
 		</div>
 	</div>
 </body>
