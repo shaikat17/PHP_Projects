@@ -14,6 +14,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Edit Product</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
@@ -71,29 +73,50 @@
 
 	 ?>
 
-	<form action="edit_product.php" method="POST">
-		Product Name: <br>
-		<input type="text" value="<?php echo $product_name ?>" name="product_name"><br><br>
-		Product Category: <br>
-		<select name="product_category">
-			<?php
-			while($data = mysqli_fetch_assoc($query)) {
-				$category_name = $data['category_name'];
-				$category_id = $data['category_id'];
+	 <div class="container bg-light">
+		<div class="container-fluid border-bottom border-success">
+			<?php include('topbar.php'); ?>
+			
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-4 bg-light p-0 m-0">
 
-				?>
-					<option value='<?php echo $category_id ?>' <?php if($category_id == $product_category) {echo "selected";} ?> ><?php echo $category_name ?></option>;
-			<?php
-			}
-			?>
-		</select><br><br>
-		Product Code: <br>
-		<input type="text" value="<?php echo $product_code ?>" name="product_code"><br><br>
-		<input type="hidden" value="<?php echo $product_id ?>" name="product_id">
-		Product Entry Date: <br>
-		<input type="date" value="<?php echo $product_entrydate ?>" name="product_entrydate"> <br><br>
-		<input type="submit" value="Update">
-	</form>
+					<?php include('leftbar.php'); ?>
+
+				</div>
+				<div class="col-md-8 p-3 border-start border-success">
+					<form action="edit_product.php" method="POST">
+						<label for="pn" class="form-label"></label>
+						<input id="pn" class="form-control" type="text" value="<?php echo $product_name ?>" name="product_name">
+						<label for="pc" class="form-label"></label>
+						<select id="pc" class="form-select" name="product_category">
+							<?php
+							while($data = mysqli_fetch_assoc($query)) {
+								$category_name = $data['category_name'];
+								$category_id = $data['category_id'];
+
+								?>
+									<option value='<?php echo $category_id ?>' <?php if($category_id == $product_category) {echo "selected";} ?> ><?php echo $category_name ?></option>;
+							<?php
+							}
+							?>
+						</select>
+						<label for="pcd" class="form-label"></label>
+						<input id="pcd" class="form-control" type="text" value="<?php echo $product_code ?>" name="product_code">
+						<input type="hidden" value="<?php echo $product_id ?>" name="product_id">
+						<label for="pdt" class="form-label"></label>
+						<input id="pdt" class="form-control" type="date" value="<?php echo $product_entrydate ?>" name="product_entrydate"> <br><br>
+						<input class="btn btn-success" type="submit" value="Update">
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid border-top border-success">
+			<?php include('botombar.php'); ?>
+		</div>
+	</div>
+
 </body>
 </html>
 

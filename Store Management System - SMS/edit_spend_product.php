@@ -16,6 +16,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Add Store Product</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
@@ -54,32 +56,52 @@
 		
 	 ?>
 
+	 <div class="container bg-light">
+		<div class="container-fluid border-bottom border-success">
+			<?php include('topbar.php'); ?>
+			
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-4 bg-light p-0 m-0">
 
-	<form action="edit_spend_product.php" method="POST">
-		Product :<br>
-		<select name="spend_product_name">
-			<?php
-				$sql_ca = "SELECT * FROM product";
+					<?php include('leftbar.php'); ?>
 
-				$query = $conn->query($sql_ca);
+				</div>
+				<div class="col-md-8 p-3 border-start border-success">
+					<form action="edit_spend_product.php" method="POST">
+						<label for="spn" class="form-label"></label>
+						<select id="spn" class="form-select" name="spend_product_name">
+							<?php
+								$sql_ca = "SELECT * FROM product";
 
-				while($data = mysqli_fetch_assoc($query)) {
-							$data_name = $data['product_name'];
-							$data_id = $data['product_id'];
+								$query = $conn->query($sql_ca);
 
-			?>
-				<option value='<?php echo $data_id ?>' <?php if($data_id == $spend_product_name) {echo 'selected';} ?> ><?php echo $data_name ?></option>";
-				<?php
-						}
-			?>
-		</select><br><br>
-		Product Quantity: <br>
-		<input type="text" value="<?php echo $spend_product_quantity ?>" name="spend_product_quantity"><br><br>
-		Store Entry Date: <br>
-		<input type="date" value="<?php echo $spend_product_entrydate ?>" name="spend_product_entrydate"> <br><br>
-		<input type="hidden" value="<?php echo $spend_product_id ?>" name="spend_product_id">
-		<input type="submit" value="Update">
-	</form>
+								while($data = mysqli_fetch_assoc($query)) {
+											$data_name = $data['product_name'];
+											$data_id = $data['product_id'];
+
+							?>
+								<option value='<?php echo $data_id ?>' <?php if($data_id == $spend_product_name) {echo 'selected';} ?> ><?php echo $data_name ?></option>";
+								<?php
+										}
+							?>
+						</select>
+						<label for="spq" class="form-label"></label>
+						<input id="spq" class="form-control" type="text" value="<?php echo $spend_product_quantity ?>" name="spend_product_quantity">
+						<label for="spdt" class="form-label"></label>
+						<input id="spdt" class="form-control" type="date" value="<?php echo $spend_product_entrydate ?>" name="spend_product_entrydate"> <br><br>
+						<input type="hidden" value="<?php echo $spend_product_id ?>" name="spend_product_id">
+						<input class="btn btn-success" type="submit" value="Update">
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid border-top border-success">
+			<?php include('botombar.php'); ?>
+		</div>
+	</div>
+
 </body>
 </html>
 

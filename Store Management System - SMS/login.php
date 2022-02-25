@@ -27,10 +27,10 @@
 				$data = mysqli_fetch_array($query);
 
 				$userEmail = $data['user_email'];
-				$userName = $data['user_first_name'];
+				$username = $data['user_first_name'];
 
 				$_SESSION['userEmail'] = $userEmail;
-				$_SESSION['userName'] = $userName;
+				$_SESSION['username'] = $username;
 
 				header('location:index.php');
 			} else {

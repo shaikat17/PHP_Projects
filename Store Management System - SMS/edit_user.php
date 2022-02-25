@@ -14,6 +14,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Edit User</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
@@ -65,18 +67,39 @@
 
 	 ?>
 
-	<form action="edit_user.php" method="POST" autocomplete="off">
-		User First Name: <br>
-		<input type="text" value="<?php echo $userFirstName ?>" name="user_first_name"><br><br>
-		User Last Name: <br>
-		<input type="text" value="<?php echo $userLastName ?>" name="user_last_name"> <br><br>
-		<input type="hidden" value="<?php echo $userID ?>" name="user_id">
-		User Email: <br>
-		<input type="email" value="<?php echo $userEmail ?>" name="user_email"><br><br>
-		User Password: <br>
-		<input type="password" value="<?php echo $userPass ?>" name="user_pass"><br><br>
-		<input type="submit" value="Update User">
-	</form>
+	 <div class="container bg-light">
+		<div class="container-fluid border-bottom border-success">
+			<?php include('topbar.php'); ?>
+			
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-4 bg-light p-0 m-0">
+
+					<?php include('leftbar.php'); ?>
+
+				</div>
+				<div class="col-md-8 p-3 border-start border-success">
+					<form action="edit_user.php" method="POST" autocomplete="off">
+					<label for="ufn" class="form-label"></label>
+					<input id="ufn" class="form-control" type="text" value="<?php echo $userFirstName ?>" name="user_first_name">
+					<label for="uln" class="form-label"></label>
+					<input id="uln" class="form-control" type="text" value="<?php echo $userLastName ?>" name="user_last_name"> 
+					<input type="hidden" value="<?php echo $userID ?>" name="user_id">
+					<label for="em" class="form-label"></label> 
+					<input id="em" class="form-control" type="email" value="<?php echo $userEmail ?>" name="user_email">
+					<label for="psw" class="form-label"></label>
+					<input id="psw" class="form-control" type="password" value="<?php echo $userPass ?>" name="user_pass"><br><br>
+					<input class="btn btn-success" type="submit" value="Update User">
+				</form>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid border-top border-success">
+			<?php include('botombar.php'); ?>
+		</div>
+	</div>
+
 </body>
 </html>
 

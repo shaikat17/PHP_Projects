@@ -3,7 +3,7 @@
 	$hostName = "localhost";
 	$userName = "root";
 	$pass = "";
-	$dbName = "sms_db";
+	$dbName = "store_db";
 
 	$conn = new mysqli($hostName, $userName, $pass, $dbName);
 
